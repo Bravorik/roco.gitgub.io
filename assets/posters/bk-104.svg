@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1120" viewBox="0 0 800 1120" role="img" aria-labelledby="bk-104-title bk-104-meta">
+  <title id="bk-104-title">Letters Of Light</title>
+  <desc id="bk-104-meta">Poetry ebook poster by Nora Keys</desc>
+  <defs>
+    <linearGradient id="bg-bk-104" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#220654"/>
+      <stop offset="55%" stop-color="#5224d7"/>
+      <stop offset="100%" stop-color="#a88dff"/>
+    </linearGradient>
+    <radialGradient id="flare-bk-104" cx="0.2" cy="0.1" r="0.9">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.72"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="800" height="1120" fill="url(#bg-bk-104)"/>
+  <circle cx="130" cy="170" r="220" fill="url(#flare-bk-104)" opacity="0.6"/>
+  <circle cx="680" cy="910" r="300" fill="#ffffff" opacity="0.12"/>
+  <circle cx="180" cy="890" r="190" fill="#ffffff" opacity="0.15"/>
+
+  <rect x="72" y="94" width="656" height="930" rx="36" fill="#0a0f23" fill-opacity="0.28"/>
+  <rect x="96" y="120" width="608" height="878" rx="28" fill="#081227" fill-opacity="0.26" stroke="#ffffff" stroke-opacity="0.48"/>
+
+  <g opacity="0.35">
+    <path d="M130 770C220 640 360 670 450 590C540 510 585 405 690 355" stroke="#ffffff" stroke-width="8" fill="none"/>
+    <path d="M100 860C205 720 320 770 450 700C555 640 620 530 700 470" stroke="#ffffff" stroke-width="6" fill="none"/>
+  </g>
+
+  <text x="136" y="205" fill="#ffffff" font-size="30" font-family="Arial, sans-serif" letter-spacing="5">ROCORAFT ORIGINAL</text>
+  <text x="136" y="288" fill="#ffffff" font-size="84" font-weight="700" font-family="Arial, sans-serif">Letters Of Light</text>
+  <text x="136" y="348" fill="#ffffff" opacity="0.86" font-size="34" font-family="Arial, sans-serif">Nora Keys</text>
+
+  <rect x="136" y="390" width="218" height="56" rx="28" fill="#ffffff" fill-opacity="0.2" stroke="#ffffff" stroke-opacity="0.6"/>
+  <text x="164" y="427" fill="#ffffff" font-size="28" font-family="Arial, sans-serif">Poetry</text>
+
+  <g fill="#ffffff" fill-opacity="0.18">
+    <rect x="136" y="510" width="530" height="26" rx="13"/>
+    <rect x="136" y="560" width="480" height="22" rx="11"/>
+    <rect x="136" y="603" width="510" height="22" rx="11"/>
+    <rect x="136" y="646" width="418" height="22" rx="11"/>
+  </g>
+
+  <rect x="136" y="914" width="528" height="56" rx="28" fill="#ffffff" fill-opacity="0.24"/>
+  <text x="198" y="952" fill="#ffffff" font-size="30" font-family="Arial, sans-serif" letter-spacing="2">GRAPHICAL EDITION</text>
+</svg>

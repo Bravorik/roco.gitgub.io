@@ -5,7 +5,7 @@ const BOOKS = [
     author: "Mila Rowan",
     label: "Sci-Fi",
     price: 8.99,
-    cover: "linear-gradient(135deg, #00f5d4, #4de8ff)"
+    poster: "./assets/posters/bk-101.svg"
   },
   {
     id: "bk-102",
@@ -13,7 +13,7 @@ const BOOKS = [
     author: "Aron Wells",
     label: "Thriller",
     price: 7.49,
-    cover: "linear-gradient(135deg, #ff5d8f, #ff9d7a)"
+    poster: "./assets/posters/bk-102.svg"
   },
   {
     id: "bk-103",
@@ -21,7 +21,7 @@ const BOOKS = [
     author: "Rina Shaw",
     label: "Business",
     price: 12.99,
-    cover: "linear-gradient(135deg, #ffbe0b, #ffd86b)"
+    poster: "./assets/posters/bk-103.svg"
   },
   {
     id: "bk-104",
@@ -29,7 +29,7 @@ const BOOKS = [
     author: "Nora Keys",
     label: "Poetry",
     price: 6.99,
-    cover: "linear-gradient(135deg, #7b5cff, #9f8cff)"
+    poster: "./assets/posters/bk-104.svg"
   },
   {
     id: "bk-105",
@@ -37,7 +37,7 @@ const BOOKS = [
     author: "Jon Hales",
     label: "Mystery",
     price: 9.29,
-    cover: "linear-gradient(135deg, #4de8ff, #6a8bff)"
+    poster: "./assets/posters/bk-105.svg"
   },
   {
     id: "bk-106",
@@ -45,7 +45,7 @@ const BOOKS = [
     author: "Ari Bloom",
     label: "Romance",
     price: 7.99,
-    cover: "linear-gradient(135deg, #ff7eb3, #ff758c)"
+    poster: "./assets/posters/bk-106.svg"
   },
   {
     id: "bk-107",
@@ -53,7 +53,7 @@ const BOOKS = [
     author: "Devon Pike",
     label: "Technology",
     price: 11.49,
-    cover: "linear-gradient(135deg, #23f4ff, #0ea5ff)"
+    poster: "./assets/posters/bk-107.svg"
   },
   {
     id: "bk-108",
@@ -61,7 +61,7 @@ const BOOKS = [
     author: "Eva Dean",
     label: "Self Growth",
     price: 5.99,
-    cover: "linear-gradient(135deg, #9be15d, #00e3ae)"
+    poster: "./assets/posters/bk-108.svg"
   },
   {
     id: "bk-109",
@@ -69,7 +69,7 @@ const BOOKS = [
     author: "Kian Soren",
     label: "Fantasy",
     price: 10.2,
-    cover: "linear-gradient(135deg, #ffaf7b, #d76d77)"
+    poster: "./assets/posters/bk-109.svg"
   },
   {
     id: "bk-110",
@@ -77,7 +77,7 @@ const BOOKS = [
     author: "Layla Hart",
     label: "Productivity",
     price: 8.49,
-    cover: "linear-gradient(135deg, #43cea2, #185a9d)"
+    poster: "./assets/posters/bk-110.svg"
   }
 ];
 
@@ -143,13 +143,14 @@ function showToast(message) {
 function addToCart(bookId) {
   const cart = readCart();
   const existing = cart.find((item) => item.id === bookId);
+
   if (existing) {
     existing.qty += 1;
   } else {
     cart.push({ id: bookId, qty: 1 });
   }
-  writeCart(cart);
 
+  writeCart(cart);
   const book = findBook(bookId);
   showToast(book ? book.title + " added to cart" : "Book added to cart");
 }
@@ -161,8 +162,7 @@ function updateQty(bookId, change) {
 
   item.qty += change;
   if (item.qty <= 0) {
-    const filtered = cart.filter((entry) => entry.id !== bookId);
-    writeCart(filtered);
+    writeCart(cart.filter((entry) => entry.id !== bookId));
   } else {
     writeCart(cart);
   }
@@ -179,7 +179,10 @@ function removeFromCart(bookId) {
 function createBookCard(book) {
   return `
     <article class="book-card">
-      <div class="book-cover" style="background: ${book.cover}">${book.label}</div>
+      <div class="book-cover-wrap">
+        <img class="book-poster" src="${book.poster}" alt="${book.title} poster" loading="lazy" />
+        <span class="book-badge">ROCORAFT GRAPHICAL</span>
+      </div>
       <div class="book-body">
         <span class="label-pill">${book.label}</span>
         <h3>${book.title}</h3>
@@ -264,8 +267,8 @@ function renderLabelsPage() {
 
   labelsGrid.innerHTML = labels
     .map(
-      (label, index) => `
-        <article class="label-card" style="animation-delay: -${(index % 5) * 0.3}s">
+      (label) => `
+        <article class="label-card">
           <h3>${label}</h3>
           <p>${labelMap[label]} books available in this label.</p>
           <a class="btn btn-ghost" href="./books.html?label=${encodeURIComponent(label)}">Open Label</a>
@@ -274,7 +277,10 @@ function renderLabelsPage() {
     )
     .join("");
 
-  const pills = labels.concat(labels).map((label) => `<span class="marquee-pill">${label}</span>`).join("");
+  const pills = labels
+    .concat(labels)
+    .map((label) => `<span class="marquee-pill">${label}</span>`)
+    .join("");
   marquee.innerHTML = pills;
 }
 
@@ -303,11 +309,13 @@ function renderCartPage() {
     .map((item) => {
       const book = findBook(item.id);
       if (!book) return "";
-      const lineTotal = book.price * item.qty;
 
+      const lineTotal = book.price * item.qty;
       return `
         <article class="cart-item">
-          <div class="cart-cover" style="background: ${book.cover}"></div>
+          <div class="cart-cover">
+            <img src="${book.poster}" alt="${book.title} poster" loading="lazy" />
+          </div>
           <div class="cart-info">
             <h3>${book.title}</h3>
             <p>${book.author} | ${book.label}</p>
