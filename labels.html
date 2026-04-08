@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Rocoraft labels and genres." />
+  <title>Rocoraft | Labels</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <style>
+    body { background: #0a1027; color: #f7fbff; margin: 0; }
+  </style>
+  <script src="./script.js" defer></script>
+</head>
+<body data-page="labels">
+  <header class="site-header">
+    <div class="container nav-shell">
+      <a class="brand" href="./index.html">Rocoraft</a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="siteNav" aria-label="Open menu">
+        <span aria-hidden="true">&#9776;</span>
+      </button>
+      <nav id="siteNav" class="site-nav">
+        <a href="./index.html">Home</a>
+        <a href="./books.html">Books</a>
+        <a href="./labels.html" class="active">Labels</a>
+        <a href="./cart.html" class="cart-link">Cart <span class="cart-count">0</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section container page-hero" data-reveal>
+      <p class="eyebrow">Genre Labels</p>
+      <h1>Pick A Label, Jump To Books</h1>
+      <p>Every label opens a curated list to speed up your shopping.</p>
+    </section>
+
+    <section class="section container" data-reveal>
+      <div id="labelsGrid" class="label-grid"></div>
+    </section>
+
+    <section class="section container" data-reveal>
+      <div class="marquee-wrap">
+        <div id="labelMarquee" class="marquee-track"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-shell">
+      <p>Rocoraft <span data-year></span> All rights reserved.</p>
+      <div class="footer-links">
+        <a href="./books.html">Shop</a>
+        <a href="./labels.html">Labels</a>
+        <a href="./cart.html">Cart</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

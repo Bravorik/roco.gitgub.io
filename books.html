@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Rocoraft ebooks catalog." />
+  <title>Rocoraft | Books</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <style>
+    body { background: #0a1027; color: #f7fbff; margin: 0; }
+  </style>
+  <script src="./script.js" defer></script>
+</head>
+<body data-page="books">
+  <header class="site-header">
+    <div class="container nav-shell">
+      <a class="brand" href="./index.html">Rocoraft</a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="siteNav" aria-label="Open menu">
+        <span aria-hidden="true">&#9776;</span>
+      </button>
+      <nav id="siteNav" class="site-nav">
+        <a href="./index.html">Home</a>
+        <a href="./books.html" class="active">Books</a>
+        <a href="./labels.html">Labels</a>
+        <a href="./cart.html" class="cart-link">Cart <span class="cart-count">0</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section container page-hero" data-reveal>
+      <p class="eyebrow">Book Collection</p>
+      <h1>Find Your Perfect Ebook</h1>
+      <p>Use search and labels to quickly find books and add them to your cart.</p>
+    </section>
+
+    <section class="section container" data-reveal>
+      <div class="catalog-toolbar">
+        <label>
+          Search
+          <input id="searchInput" type="search" placeholder="Search title or author" />
+        </label>
+        <label>
+          Label
+          <select id="labelFilter">
+            <option value="all">All Labels</option>
+          </select>
+        </label>
+      </div>
+      <div id="booksGrid" class="book-grid"></div>
+      <p id="noBooks" class="empty-state hidden">No books match your search right now.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-shell">
+      <p>Rocoraft <span data-year></span> All rights reserved.</p>
+      <div class="footer-links">
+        <a href="./books.html">Shop</a>
+        <a href="./labels.html">Labels</a>
+        <a href="./cart.html">Cart</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

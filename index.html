@@ -3,142 +3,115 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Rocoraft - Colorful animated ebook store for every reader." />
-  <title>Rocoraft | Animated Ebook Store</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta name="description" content="Rocoraft animated ebook store." />
+  <title>Rocoraft | Home</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <style>
+    body { background: #0a1027; color: #f7fbff; margin: 0; }
+  </style>
+  <script src="./script.js" defer></script>
 </head>
-<body>
-  <div class="bg-orb orb-a"></div>
-  <div class="bg-orb orb-b"></div>
-  <div class="bg-orb orb-c"></div>
-
+<body data-page="home">
   <header class="site-header">
-    <div class="container nav-wrap">
-      <a href="#" class="brand">Rocoraft</a>
-      <button class="menu-btn" aria-label="Toggle menu">☰</button>
-      <nav class="nav-links">
-        <a href="#catalog">Catalog</a>
-        <a href="#features">Features</a>
-        <a href="#deals">Deals</a>
-        <a href="#newsletter">Newsletter</a>
+    <div class="container nav-shell">
+      <a class="brand" href="./index.html">Rocoraft</a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="siteNav" aria-label="Open menu">
+        <span aria-hidden="true">&#9776;</span>
+      </button>
+      <nav id="siteNav" class="site-nav">
+        <a href="./index.html" class="active">Home</a>
+        <a href="./books.html">Books</a>
+        <a href="./labels.html">Labels</a>
+        <a href="./cart.html" class="cart-link">Cart <span class="cart-count">0</span></a>
       </nav>
     </div>
   </header>
 
   <main>
-    <section class="hero container reveal">
+    <section class="hero section container" data-reveal>
       <div class="hero-copy">
-        <p class="eyebrow">Animated Ebook Marketplace</p>
-        <h1>Discover Your Next Favorite Read On Rocoraft</h1>
-        <p class="lead">
-          Explore bestselling ebooks, indie gems, and curated learning bundles in one vibrant library.
-          Read anywhere, anytime, on any device.
+        <p class="eyebrow">Colorful Animated Ebook World</p>
+        <h1>Read, Collect, And Enjoy Books On Rocoraft</h1>
+        <p>
+          Discover premium ebooks, vibrant genre labels, and one-click checkout in a fast, mobile-friendly store.
         </p>
         <div class="hero-actions">
-          <a href="#catalog" class="btn btn-primary">Shop Ebooks</a>
-          <a href="#deals" class="btn btn-secondary">View Offers</a>
+          <a class="btn btn-primary" href="./books.html">Browse Books</a>
+          <a class="btn btn-ghost" href="./labels.html">Explore Labels</a>
+        </div>
+        <div class="stats-row">
+          <div class="stat-card">
+            <strong>2K+</strong>
+            <span>Readers</span>
+          </div>
+          <div class="stat-card">
+            <strong>400+</strong>
+            <span>Ebooks</span>
+          </div>
+          <div class="stat-card">
+            <strong>40+</strong>
+            <span>Genres</span>
+          </div>
         </div>
       </div>
-      <div class="hero-card" aria-hidden="true">
-        <div class="book-stack">
-          <span class="book b1">Fantasy</span>
-          <span class="book b2">Business</span>
-          <span class="book b3">Romance</span>
-          <span class="book b4">Thriller</span>
-        </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="float-book book-a">FANTASY</div>
+        <div class="float-book book-b">THRILLER</div>
+        <div class="float-book book-c">BUSINESS</div>
+        <div class="float-book book-d">ROMANCE</div>
       </div>
     </section>
 
-    <section id="features" class="features container reveal">
-      <article class="feature">
-        <h2>Instant Download</h2>
-        <p>Buy and start reading in seconds with your Rocoraft cloud shelf.</p>
-      </article>
-      <article class="feature">
-        <h2>Cross Device Sync</h2>
-        <p>Continue reading seamlessly on mobile, tablet, or desktop.</p>
-      </article>
-      <article class="feature">
-        <h2>Weekly Color Deals</h2>
-        <p>Fresh animated promotions and rotating genre discounts every week.</p>
-      </article>
-    </section>
-
-    <section id="catalog" class="catalog container reveal">
+    <section class="section container" data-reveal>
       <div class="section-head">
-        <p class="eyebrow">Top Picks</p>
-        <h2>Trending Ebooks</h2>
+        <p class="eyebrow">Trending</p>
+        <h2>Featured Ebooks</h2>
       </div>
-      <div class="book-grid">
-        <article class="book-card">
-          <span class="tag">New</span>
-          <h3>The Neon Archive</h3>
-          <p>Sci-Fi Adventure</p>
-          <div class="price-row">
-            <strong>$8.99</strong>
-            <button>Buy Now</button>
-          </div>
-        </article>
-        <article class="book-card">
-          <span class="tag">Best Seller</span>
-          <h3>Momentum Blueprint</h3>
-          <p>Business Growth</p>
-          <div class="price-row">
-            <strong>$12.99</strong>
-            <button>Buy Now</button>
-          </div>
-        </article>
-        <article class="book-card">
-          <span class="tag">Hot</span>
-          <h3>Crimson Tides</h3>
-          <p>Mystery Thriller</p>
-          <div class="price-row">
-            <strong>$7.49</strong>
-            <button>Buy Now</button>
-          </div>
-        </article>
-        <article class="book-card">
-          <span class="tag">Editor Choice</span>
-          <h3>Letters Of Light</h3>
-          <p>Poetry Collection</p>
-          <div class="price-row">
-            <strong>$6.99</strong>
-            <button>Buy Now</button>
-          </div>
-        </article>
+      <div id="featuredGrid" class="book-grid"></div>
+    </section>
+
+    <section class="section container" data-reveal>
+      <div class="promo-banner">
+        <div>
+          <p class="eyebrow">Limited Offer</p>
+          <h2>Rocoraft Starter Bundle</h2>
+          <p>Pick any 5 ebooks and get an instant 30% discount.</p>
+        </div>
+        <a class="btn btn-primary" href="./books.html">Claim Offer</a>
       </div>
     </section>
 
-    <section id="deals" class="deals container reveal">
-      <div class="deal-text">
-        <p class="eyebrow">Limited Time</p>
-        <h2>Rocoraft Spring Bundle</h2>
-        <p>Get 5 premium ebooks for only $19.99 with lifetime access.</p>
+    <section class="section container" data-reveal>
+      <div class="section-head">
+        <p class="eyebrow">Why Rocoraft</p>
+        <h2>Built For Every Device</h2>
       </div>
-      <a href="#" class="btn btn-primary">Claim Deal</a>
-    </section>
-
-    <section id="newsletter" class="newsletter container reveal">
-      <h2>Stay In The Rocoraft Loop</h2>
-      <p>Get colorful weekly recommendations and discount drops straight to your inbox.</p>
-      <form class="newsletter-form" action="#" method="post">
-        <input type="email" placeholder="Enter your email" required />
-        <button type="submit">Subscribe</button>
-      </form>
+      <div class="feature-grid">
+        <article class="feature-card">
+          <h3>Fast Checkout</h3>
+          <p>Add to cart, update quantity, and complete orders in seconds.</p>
+        </article>
+        <article class="feature-card">
+          <h3>Animated Interface</h3>
+          <p>Rich transitions and colorful visuals for an engaging shopping experience.</p>
+        </article>
+        <article class="feature-card">
+          <h3>Always Responsive</h3>
+          <p>Perfect layout on mobile, tablet, laptop, and large displays.</p>
+        </article>
+      </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-wrap">
-      <p>Rocoraft © 2026. All Rights Reserved.</p>
-      <div class="social-links">
-        <a href="#">Instagram</a>
-        <a href="#">X</a>
-        <a href="#">YouTube</a>
+    <div class="container footer-shell">
+      <p>Rocoraft <span data-year></span> All rights reserved.</p>
+      <div class="footer-links">
+        <a href="./books.html">Shop</a>
+        <a href="./labels.html">Labels</a>
+        <a href="./cart.html">Cart</a>
       </div>
     </div>
   </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>
